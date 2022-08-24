@@ -1,17 +1,17 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 class Selections extends React.Component {
   render() {
     const { htmlText, name, value, onChange, dataTestId } = this.props;
     return (
       <div>
-        <label htmlFor={name}>{htmlText}</label>
+        <label htmlFor={ name }>{htmlText}</label>
         <select
-          name={name}
-          value={value}
-          onChange={onChange}
-          dataTestId={dataTestId}
+          name={ name }
+          value={ value }
+          onChange={ onChange }
+          dataTestId={ dataTestId }
         >
           <option value="normal">Normal</option>
           <option value="raro">Raro</option>
