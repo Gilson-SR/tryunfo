@@ -9,11 +9,11 @@ import TextArea from './TextArea';
 class Form extends React.Component {
   render() {
 
-    const { 
-      cardName, 
-      cardDescription, 
-      cardAttr1, 
-      cardAttr2, 
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
       cardAttr3,
       cardImage,
       cardRare,
