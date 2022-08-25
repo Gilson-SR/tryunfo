@@ -19,7 +19,7 @@ class TextArea extends React.Component {
   }
 }
 
-export default Inputs;
+export default TextArea;
 
 TextArea.propTypes = {
   htmlText: PropTypes.string.isRequired,

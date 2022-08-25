@@ -19,11 +19,11 @@ class App extends React.Component {
 
   trunfoVerify = () => {
     const { cards } = this.state;
-    const cardsMapping =  cards.map((card) => card.cardTrunfo);
-    if (cardsMapping.includes(true)){
+    const cardsMapping = cards.map((card) => card.cardTrunfo);
+    if (cardsMapping.includes(true)) {
       this.setState({ hasTrunfo: true });
     }
-  }
+  };
 
   onSaveButtonClick = () => {
     const {
@@ -63,7 +63,7 @@ class App extends React.Component {
     });
 
     this.trunfoVerify();
-  }
+  };
 
   onInputChange = ({ target }) => {
     const { name, type } = target;
@@ -135,6 +135,7 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       hasTrunfo,
+      cards,
       isSaveButtonDisabled,
     } = this.state;
 
