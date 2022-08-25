@@ -17,6 +17,14 @@ class App extends React.Component {
     cards: [],
   };
 
+  trunfoVerify = () => {
+    const { cards } = this.state;
+    const cardsMapping =  cards.map((card) => card.cardTrunfo);
+    if (cardsMapping.includes(true)){
+      this.setState({ hasTrunfo: true });
+    }
+  }
+
   onInputChange = ({ target }) => {
     const { name, type } = target;
     const value = type === 'checkbox' ? target.checked : target.value;
@@ -24,25 +32,23 @@ class App extends React.Component {
     this.setState({
       [name]: value,
     }, () => this.buttonValidation());
-  }
+  };
 
   validateDescriptions = () => {
     const { cardName, cardDescription, cardImage, cardRare } = this.state;
     const initialValue = 0;
 
-    if(
-      cardName.length <= initialValue 
+    if (cardName.length <= initialValue
       || cardDescription.length <= initialValue
       || cardImage.length <= initialValue
       || cardRare.length <= initialValue
     ) {
       return false;
     }
-    return true;
-  }
+  };
 
   validateAttributes = () => {
-    let { cardAttr1, cardAttr2, cardAttr3} = this.state;
+    let { cardAttr1, cardAttr2, cardAttr3 } = this.state;
     cardAttr1 = Number(cardAttr1);
     cardAttr2 = Number(cardAttr2);
     cardAttr3 = Number(cardAttr3);
@@ -50,37 +56,48 @@ class App extends React.Component {
     const maxAttribute = 90;
     const totalAttribute = 210;
 
-    if(
+    if (
       cardAttr1 > maxAttribute
       || cardAttr2 > maxAttribute
       || cardAttr3 > maxAttribute
-    ){
+    ) {
       return false;
     }
 
-    if(
+    if (
       cardAttr1 < minAttribute
       || cardAttr2 < minAttribute
       || cardAttr3 < minAttribute
-    ){
-      return false
-    }
-
-    if(
-      cardAttr1 + cardAttr2 + cardAttr3 > totalAttribute
-    ){
+    ) {
       return false;
     }
 
-    return true;
-  }
+    if (
+      cardAttr1 + cardAttr2 + cardAttr3 > totalAttribute
+    ) {
+      return false;
+    }
+  };
 
   buttonValidation = () => {
     const activatedButton = this.validateAttributes() && this.validateDescriptions();
-    this.setState({ isSaveButtonDisabled: !activatedButton});
-  }
+    this.setState({ isSaveButtonDisabled: !activatedButton });
+  };
 
   render() {
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+      hasTrunfo,
+      isSaveButtonDisabled,
+    } = this.state;
+
     return (
       <div>
         <h1>Tryunfo</h1>
@@ -108,6 +125,22 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
+        <div>
+          { cards.map((card, index) => (
+            <div key={ index }>
+              <Card
+                cardName={ card.cardName }
+                cardDescription={ card.cardDescription }
+                cardAttr1={ card.cardAttr1 }
+                cardAttr2={ card.cardAttr2 }
+                cardAttr3={ card.cardAttr3 }
+                cardImage={ card.cardImage }
+                cardRare={ card.cardRare }
+                cardTrunfo={ card.cardTrunfo }
+              />
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
