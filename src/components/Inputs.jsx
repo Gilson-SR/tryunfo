@@ -7,8 +7,8 @@ class Inputs extends React.Component {
 
     return (
       <div>
-        <label htmlFor={ name }>{htmlText}</label>
-        <textarea
+        <label htmlFor={ dataTestId }>{htmlText}</label>
+        <input
           type={ type }
           name={ name }
           value={ value }
@@ -22,7 +22,7 @@ class Inputs extends React.Component {
 
 export default Inputs;
 
-TextArea.propTypes = {
+Inputs.propTypes = {
   htmlText: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,

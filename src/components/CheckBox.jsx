@@ -6,7 +6,7 @@ class CheckBox extends React.Component {
     const { htmlText, name, type, value, onChange, dataTestId } = this.props;
     return (
       <div>
-        <label htmlFor={ name }>{htmlText}</label>
+        <label htmlFor={ dataTestId }>{htmlText}</label>
         <input
           type={ type }
           name={ name }

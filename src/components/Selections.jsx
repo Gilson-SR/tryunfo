@@ -6,7 +6,7 @@ class Selections extends React.Component {
     const { htmlText, name, value, onChange, dataTestId } = this.props;
     return (
       <div>
-        <label htmlFor={ name }>{htmlText}</label>
+        <label htmlFor={ dataTestId }>{htmlText}</label>
         <select
           name={ name }
           value={ value }

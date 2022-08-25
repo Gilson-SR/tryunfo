@@ -7,7 +7,7 @@ class TextArea extends React.Component {
 
     return (
       <div>
-        <label htmlFor={ name }>{htmlText}</label>
+        <label htmlFor={ dataTestId }>{htmlText}</label>
         <textarea
           name={ name }
           value={ value }
