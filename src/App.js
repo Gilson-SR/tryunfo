@@ -76,6 +76,7 @@ class App extends React.Component {
 
   validateDescriptions = () => {
     const { cardName, cardDescription, cardImage, cardRare } = this.state;
+    const boolValue = true;
     const initialValue = 0;
 
     if (cardName.length <= initialValue
@@ -85,10 +86,13 @@ class App extends React.Component {
     ) {
       return false;
     }
+
+    return boolValue;
   };
 
   validateAttributes = () => {
     let { cardAttr1, cardAttr2, cardAttr3 } = this.state;
+    const boolValue = true;
     cardAttr1 = Number(cardAttr1);
     cardAttr2 = Number(cardAttr2);
     cardAttr3 = Number(cardAttr3);
@@ -117,6 +121,8 @@ class App extends React.Component {
     ) {
       return false;
     }
+
+    return boolValue;
   };
 
   buttonValidation = () => {
